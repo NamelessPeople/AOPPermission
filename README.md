@@ -39,7 +39,7 @@ Upgrade inner aspectjrt version to 1.9.5
         startActivity(intent)
     }
     @PermissionCanceled
-    fun test2() {
+    fun test2(cancel: CancelBean) {
         Toast.makeText(this,"PermissionCanceled",Toast.LENGTH_SHORT).show()
     }
     
