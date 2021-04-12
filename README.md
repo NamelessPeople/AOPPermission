@@ -1,4 +1,9 @@
 ## 一、配置
+
+Supports android gradle plugin 3.6.1
+
+Upgrade inner aspectjrt version to 1.9.5
+
 [![](https://jitpack.io/v/NamelessPeople/AOPPermission.svg)](https://jitpack.io/#NamelessPeople/AOPPermission)
 
 	allprojects {
