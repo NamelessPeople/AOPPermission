@@ -1,5 +1,5 @@
 ## 一、配置
-[![](https://www.jitpack.io/v/NamelessPeople/RoundLabelTextView.svg)](https://www.jitpack.io/#NamelessPeople/RoundLabelTextView)
+[![](https://jitpack.io/v/NamelessPeople/AOPPermission.svg)](https://jitpack.io/#NamelessPeople/AOPPermission)
 
 	allprojects {
 		repositories {
@@ -15,3 +15,27 @@
 	dependencies {
 			implementation 'com.github.NamelessPeople:AOPPermission:1.0.0'
 	}
+	
+	apply plugin: 'android-aspectjx'
+	
+## 二、使用举例
+    @NeedPermission([android.Manifest.permission.READ_EXTERNAL_STORAGE,android.Manifest.permission.WRITE_EXTERNAL_STORAGE])
+    fun test() {
+        Toast.makeText(this,"PermissionSuccess",Toast.LENGTH_SHORT).show()
+    }
+
+    @PermissionDenied
+    fun test1(d: DenyBean) {
+        Toast.makeText(this,"PermissionDenied",Toast.LENGTH_SHORT).show()
+        val intent = Intent()
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+        intent.data = Uri.fromParts("package", getPackageName(), null)
+        startActivity(intent)
+    }
+    @PermissionCanceled
+    fun test2() {
+        Toast.makeText(this,"PermissionCanceled",Toast.LENGTH_SHORT).show()
+    }
+    
+    
