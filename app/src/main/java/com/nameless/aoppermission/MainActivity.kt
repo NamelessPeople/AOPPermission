@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nameless.permission.annotation.NeedPermission
 import com.nameless.permission.annotation.PermissionCanceled
 import com.nameless.permission.annotation.PermissionDenied
+import com.nameless.permission.bean.CancelBean
 import com.nameless.permission.bean.DenyBean
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @PermissionCanceled
-    fun test2() {
+    fun test2(cancel: CancelBean) {
         Toast.makeText(this, "PermissionCanceled", Toast.LENGTH_SHORT).show()
     }
 }
